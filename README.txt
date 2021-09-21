@@ -37,6 +37,10 @@ Run test:
     $ pip install '.[test]'
     $ venv/bin/pytest
 
+
+==============
+TODO: configure coverage report
+==============
 Run with coverage report::
 
     $ coverage run -m pytest
