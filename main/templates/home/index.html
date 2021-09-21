@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Inputs{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="input">Enter input</label>
+    <input name="input" id="input" required>
+    <input type="submit" value="Add">
+  </form>
+
+  
+  {% for eachInput in inputs %}
+    <article>
+      <p class="body">
+        <a href="{{ url_for('home.index') }}?id={{ eachInput['id'] }}">{{ eachInput['input'] }}</a> created on {{ eachInput['created'].strftime('%Y-%m-%d %H:%M:%S') }}
+      </p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+
+
+  {% if result %}
+    <label>Result:</label>
+    {% for key in result %}
+      <p class="body">
+        {{ key }}: {{ result[key] }}
+      </p>
+    {% endfor %}
+  {% endif %}
+
+{% endblock %}

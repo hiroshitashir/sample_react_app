@@ -1,0 +1,4 @@
+include main/schemas
+graft main/static
+graft main/templates
+global-exclude *.pyc
