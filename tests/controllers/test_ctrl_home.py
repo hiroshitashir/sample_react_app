@@ -24,7 +24,6 @@ def test_create(client, app):
 
 
 def test_invalid_create(client, app):
-    assert client.get("/").status_code == 200
     response = client.post("/", data={"input": "test input1",})
 
     assert b"Input should only contain English characters, space, and punctuation like commas, periods, question marks, and semicolons." in response.data
@@ -50,3 +49,18 @@ def test_applyFunc():
     output = controller.applyFunc("xx.x y?yy xxx yy?")
     assert output["X y"] == 1
     assert output["Xxx yy"] == 2
+
+
+def test_delete(client, app):
+    """Create a record first"""
+    response = client.post("/", data={"input": "aaa bbb ccc",})
+
+    with app.app_context():
+        db = get_db()
+        record = db.execute("SELECT id FROM input ORDER BY created DESC LIMIT 1").fetchone()
+
+        id = record['id']
+        response = client.post("/%s/delete" % id, data={})
+
+        count = db.execute("SELECT count(id) FROM input WHERE id = ?", (id,)).fetchone()[0]
+        assert count == 0

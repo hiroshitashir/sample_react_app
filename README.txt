@@ -27,6 +27,9 @@ $ flask run
 Test
 =============
 
+Install pytest
+$ pip install pytest
+
 So that we can import the module flaskr correctly, we need to run pip install -e . in the folder sample_flask_app.
     $ pip install -e .
 

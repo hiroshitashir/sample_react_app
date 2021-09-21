@@ -4,8 +4,10 @@ import re
 from flask import Blueprint
 from flask import current_app
 from flask import flash
+from flask import redirect
 from flask import render_template
 from flask import request
+from flask import url_for
 
 from ..models import home as model
 
@@ -73,6 +75,11 @@ def applyFunc(input):
     return counter
 
 
+@bp.route("/<int:id>/delete", methods=("POST",))
+def delete(id):
+    model.delete(id)
+
+    return redirect(url_for("home.index"))
 
 
 

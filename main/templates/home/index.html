@@ -16,6 +16,9 @@
     <article>
       <p class="body">
         <a href="{{ url_for('home.index') }}?id={{ eachInput['id'] }}">{{ eachInput['input'] }}</a> created on {{ eachInput['created'].strftime('%Y-%m-%d %H:%M:%S') }}
+        <form method="post" action="/{{ eachInput['id'] }}/delete">
+          <input type="submit" value="Delete">
+        </form>
       </p>
     </article>
     {% if not loop.last %}
