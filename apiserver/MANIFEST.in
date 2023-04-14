@@ -1,0 +1,2 @@
+graft main/schemas
+global-exclude *.pyc

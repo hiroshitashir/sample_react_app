@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: main
+Version: 1.0.0
+Summary: The basic flask app built in the Flask tutorial.
+Home-page: https://flask.palletsprojects.com/tutorial/
+Maintainer: Hiroshi
+Maintainer-email: career_tashiro@yahoo.com
+License: BSD-3-Clause
+Description: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst
+Provides-Extra: test
